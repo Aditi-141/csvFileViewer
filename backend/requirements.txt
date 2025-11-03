@@ -1,0 +1,17 @@
+# --- Core framework ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# --- Database ---
+SQLAlchemy==2.0.36
+psycopg[binary]==3.2.1     # PostgreSQL driver
+
+# --- File upload & parsing ---
+python-multipart==0.0.9
+
+# --- Authentication / security ---
+passlib==1.7.4             # switched from bcrypt → pbkdf2_sha256
+python-jose==3.3.0
+
+# --- Config / env ---
+python-dotenv==1.0.1
