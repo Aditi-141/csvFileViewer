@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/client";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import ChartPanel from "../components/ChartPanel";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -35,32 +36,29 @@ export default function FileViewer() {
   }, [id]);
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-4">
+    <div className="max-w-6xl mx-auto p-6 space-y-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => nav(-1)}
-            className="px-3 py-1.5 border rounded hover:bg-gray-50"
-            title="Go back"
-          >
-            ← Back
-          </button>
+          <button onClick={() => nav(-1)} className="px-3 py-1.5 border rounded hover:bg-gray-50" title="Go back">← Back</button>
           <h1 className="text-2xl font-bold">CSV Preview</h1>
         </div>
-
-        {/* handy: direct download link */}
-        <Link
-          to={`/files/${id}/download`}
-          className="underline"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Download CSV
-        </Link>
+        <Link to={`/files/${id}/download`} className="underline" target="_blank" rel="noreferrer">Download CSV</Link>
       </div>
 
       {err && <p className="text-red-600">{err}</p>}
-      <DataTable headers={headers} rows={rows} />
+
+      {/* Chart UI */}
+      {headers.length > 0 && rows.length > 0 && (
+        <div className="p-4 border rounded space-y-3">
+          <h2 className="font-semibold">Visualize</h2>
+          <ChartPanel headers={headers} rows={rows} />
+        </div>
+      )}
+
+      <div className="space-y-2">
+        <h2 className="font-semibold">Table</h2>
+        <DataTable headers={headers} rows={rows} />
+      </div>
     </div>
   );
 }

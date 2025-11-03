@@ -13,11 +13,10 @@ import "./index.css";
 
 function Protected({ children }: { children: JSX.Element }) {
   const { user, loading } = useAuth();
-  if (loading) return null;               // or a spinner component
+  if (loading) return null;
   if (user === null) return <Navigate to="/login" replace />;
   return children;
 }
-
 function AdminOnly({ children }: { children: JSX.Element }) {
   const { user, loading } = useAuth();
   if (loading) return null;
@@ -30,19 +29,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* All app pages share the Layout with <Outlet/> */}
           <Route element={<Layout />}>
             <Route index element={<Navigate to="/files" replace />} />
-
-            {/* Public */}
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
-
-            {/* Authed */}
             <Route path="files" element={<Protected><Files /></Protected>} />
             <Route path="files/:id" element={<Protected><FileViewer /></Protected>} />
-
-            {/* Admin */}
             <Route path="admin/upload" element={<AdminOnly><AdminUpload /></AdminOnly>} />
             <Route path="admin/users" element={<AdminOnly><AdminUsers /></AdminOnly>} />
           </Route>

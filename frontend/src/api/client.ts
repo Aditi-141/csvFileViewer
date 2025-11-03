@@ -46,6 +46,20 @@ export async function api(path: string, init: RequestInit = {}) {
   const token = getToken();
   const headers = { ...(init.headers || {}), Authorization: token ? `Bearer ${token}` : "" } as any;
   const res = await fetch(`${BASE}${path}`, { ...init, headers });
-  if (!res.ok) throw new Error((await res.json()).detail || `Request failed: ${res.status}`);
+
+  if (res.status === 401) {
+    // token bad/expired → logout and bounce to login
+    clearToken();
+    // optional: keep the current path so user returns after login
+    const after = encodeURIComponent(location.pathname + location.search);
+    location.href = `/login?next=${after}`;
+    throw new Error("Unauthorized");
+  }
+
+  if (!res.ok) {
+    let msg = `Request failed: ${res.status}`;
+    try { msg = (await res.json()).detail || msg; } catch {}
+    throw new Error(msg);
+  }
   return res.json();
 }
