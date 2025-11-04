@@ -16,3 +16,14 @@ __pycache__/
 # Environment variables
 .env
 *.env
+# ESLint
+.eslintrc
+.eslintrc.js
+.eslintrc.cjs
+.eslintrc.json
+.eslintrc.yaml
+.eslintrc.yml
+eslint.config.js
+eslint.config.cjs
+eslint.config.mjs
+.eslintcache

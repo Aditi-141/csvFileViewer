@@ -27,14 +27,14 @@ dist-ssr
 .env
 *.env
 
-# Ignore everything inside uploads/
-uploads/*
-
-# But keep the folder itself
-!uploads/
-
-# Optionally, keep a placeholder file to ensure the folder is tracked
-!uploads/.gitkeep
-
-__pycache__/
-*.pyc
+# ESLint
+.eslintrc
+.eslintrc.js
+.eslintrc.cjs
+.eslintrc.json
+.eslintrc.yaml
+.eslintrc.yml
+eslint.config.js
+eslint.config.cjs
+eslint.config.mjs
+.eslintcache
