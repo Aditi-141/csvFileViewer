@@ -11,7 +11,7 @@ export default function App() {
           <>
             <Link className="underline" to="/files">Files</Link>
             {user.is_admin && <Link className="underline" to="/admin/upload">Admin Upload</Link>}
-            {user.is_admin && <Link className="underline" to="/admin/users">Admin Users</Link>}
+            {user.is_admin && <Link className="underline" to="/admin/users">Manage Users</Link>}
           </>
         ) : (
           <>

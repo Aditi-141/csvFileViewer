@@ -1,0 +1,18 @@
+# Ignore everything inside uploads/
+uploads/*
+
+# But keep the folder itself
+!uploads/
+
+# Optionally, keep a placeholder file to ensure the folder is tracked
+!uploads/.gitkeep
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Environment variables
+.env
+*.env
