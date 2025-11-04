@@ -34,3 +34,19 @@ Built with **FastAPI**, **PostgreSQL**, and **React + TypeScript**.
 | **Database** | PostgreSQL (via SQLAlchemy ORM) | Persistent storage |
 | **Auth** | JWT | Token-based authentication |
 | **Visualization** | Recharts | Interactive data charts |
+
+## 🖼️ App Screenshots
+
+### 🔐 Login Page
+![Login Page](assets/ui/Login.png)
+
+### 📤 Admin CSV Upload
+![Upload CSV](assets/ui/AdminUpload.png)
+
+### 📊 CSV File Viewer (with Chart)
+![File Viewer](assets/ui/FileViewers.png)
+![File Viewer](assets/ui/CSVExampleView.png)
+
+### 👥 Admin User Management
+![Admin Users](assets/ui/AdminUsers.png)
+
