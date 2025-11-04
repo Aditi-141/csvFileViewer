@@ -21,7 +21,7 @@ export default function Layout() {
             <>
               <Link className="underline" to="/files">Files</Link>
               {user.is_admin && <Link className="underline" to="/admin/upload">Admin Upload</Link>}
-              {user.is_admin && <Link className="underline" to="/admin/users">Admin Users</Link>}
+              {user.is_admin && <Link className="underline" to="/admin/users">Manage Users</Link>}
               <span className="text-sm text-gray-600">Hi, {user.username}</span>
               <button className="underline" onClick={logout}>Logout</button>
             </>
